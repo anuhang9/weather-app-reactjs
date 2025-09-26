@@ -1,7 +1,6 @@
 import type { GeocodingResponse, WeatherData } from "@/api/type";
 import { Card, CardContent } from "./ui/card";
 import { ArrowDown, ArrowUp, Droplet, Wind } from "lucide-react";
-import { Link } from "react-router-dom";
 
 interface CurrentWeatherProps {
   data: WeatherData;
@@ -22,7 +21,7 @@ export const CurrentWeather = ({ data, locationName }: CurrentWeatherProps) => {
             <div className="space-y-4">
                 <div className="space-y-2">
                     <div className="flex items-end gap-1">
-                        <h2 className="text-2xl font-bold tracking-tighter"><Link  target="_blank" rel="noopener noreferrer" to={`https://google.com/search?q=${locationName?.state}`}>{locationName?.state}</Link></h2>
+                        <h2 className="text-2xl font-bold tracking-tighter">{locationName?.state}</h2>
                         {locationName?.state &&(<span className="text-muted-foreground">, {locationName.state}</span>)}
                     </div>
                     <p className="text-sm text-muted-foreground">{locationName?.country}</p>

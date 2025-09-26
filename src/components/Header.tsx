@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Logo1, Logo2 } from "./logo";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/context/theme-provider";
+import { CitySearch } from "./city-search";
 
 export const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -11,9 +12,8 @@ export const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-md py-2 supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to={"/"}>{isDark ? <Logo1 /> : <Logo2 />}</Link>
-        <div>
-          {/* search */}
-          {/* theme toggle */}
+        <div className="flex gap-4">
+          <CitySearch/>
           <button
             onClick={() => setTheme(isDark ? "light" : "dark")}
             className={`flex items-center cursor-pointer transition-transform duration-500 ${
